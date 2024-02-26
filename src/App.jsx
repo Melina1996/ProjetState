@@ -28,10 +28,23 @@ function App() {
 
             
 
-            <div className="h-[10%] w-[100%] flex justify-end">
-              <button className="bg-[#012A5Cff] rounded-lg text-white pl-4 pr-4">
-                Next step
-              </button>
+            <div className="h-[10%] w-[100%] flex justify-center items-center">
+
+              <div className="w-[50%] flex justify-start items-center">
+
+                <button className="text-[#012A5Cff] font-semibold">
+                  Go back
+                </button>
+
+              </div>
+
+              <div className="w-[50%] flex justify-end items-center">
+
+                <button className="bg-[#012A5Cff] rounded-lg text-white p-3">
+                  Next step
+                </button>
+
+              </div>
             </div>
           </div>
         </div>
