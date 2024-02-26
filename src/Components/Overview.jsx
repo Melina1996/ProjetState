@@ -26,23 +26,23 @@ export default function Overview(props) {
         
 
             {props.services.map((element, id) => {
+
+
               return (
 
-                element ? 
+                element.state ? 
 
                 <div key={id} className='w-[100%] h-[40%] rounded-xl flex'> 
 
                     <div className='w-[50%] h-[100%] flex flex-col justify-center items-start pl-6'>
 
-                        <p>COUCOU</p>
-
-                        <p>Change</p>
+                        <p>{element.name}</p>
 
                     </div>
 
                     <div className='w-[50%] h-[100%] flex justify-end items-center pr-6'>
 
-                        <p>15/month</p>
+                    <p>{element.price}</p>
 
                     </div>
 
@@ -52,7 +52,6 @@ export default function Overview(props) {
                 )
               })
           } 
-
 
 
         </div>

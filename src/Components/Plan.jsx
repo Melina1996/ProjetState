@@ -26,7 +26,7 @@ export default function Plan(props) {
 
           <p className='text-[#012A5Bff] font-semibold'>Monthly</p>
 
-          <input onChange={() => props.toggle()} type="checkbox" className="toggle [--tglbg:#012A5Bff] bg-white hover:bg-white" defaultChecked/>
+          <input onChange={() => props.toggle()} type="checkbox" className="toggle [--tglbg:#012A5Bff] bg-white hover:bg-white"/>
 
           <p className='text-[#012A5Bff] font-semibold'>Yearly</p>
 

@@ -7,13 +7,12 @@ export default function Checkbox(props) {
     function changeBox(e){
 
         if(e.target.attributes.getNamedItem('my-data').value == "Online service"){
-            props.setOnline(e.target.checked)
+            props.setOnline({state: e.target.checked,name: "Online service",price: props.price})
         } else if (e.target.attributes.getNamedItem('my-data').value == "Larger storage"){
-            props.setStorage(e.target.checked)
+            props.setStorage({state: e.target.checked,name:"Larger storage",price: props.price})
         } else if(e.target.attributes.getNamedItem('my-data').value == "Customizable profile"){
-            props.setProfile(e.target.checked)
+            props.setProfile({state: e.target.checked, name:"Customizable profile",price: props.price})
         }
-
     }
 
   return (
@@ -36,7 +35,7 @@ export default function Checkbox(props) {
 
             <div className="cursor-pointer flex justify-end items-center w-[20%]">
 
-                <p></p>
+                <p>{props.price}</p>
 
 
             </div>

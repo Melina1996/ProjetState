@@ -13,7 +13,7 @@ function App() {
 
   const [finalPrice, setPrice] = useState("")
 
-  const[plan,setPlan]=useState("yearly")
+  const[plan,setPlan]=useState("monthly")
 
   function toggle(){
    if(plan == "yearly"){
@@ -23,13 +23,15 @@ function App() {
    }
   }
 
-  const [online, setOnline] = useState(false);
+  const [online, setOnline] = useState([]);
 
-  const [storage, setStorage] = useState(false);
+  const [storage, setStorage] = useState([]);
 
-  const [profile, setProfile] = useState(false);
+  const [profile, setProfile] = useState([]);
 
   const services = [online,storage,profile]
+
+  console.log(services)
 
   let headerInfo = [
     {
@@ -98,6 +100,7 @@ function App() {
                 setOnline={setOnline}
                 setStorage={setStorage}
                 setProfile={setProfile}
+                plan={plan}
               />
             ) : currentStep == 4 ? (
               <Overview services={services} chosenPlan={chosenPlan} plan={plan} finalPrice={finalPrice}/>
