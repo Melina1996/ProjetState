@@ -7,12 +7,16 @@ import Plan from "./Components/Plan";
 function App() {
   const [currentStep, setStep] = useState(1);
 
+  const [chosenPlan,chosePlan]=useState("")
+  console.log(chosenPlan)
+
   let headerInfo = [{header: "Personal info", subtext: "Please provide your name, email address, and phone number."},{header: "Select your plan", subtext: "You have the option of monthly or yearly billing"},{header: "Pick add-ons", subtext: "Add-ons help enhance your gaming experience."},{header: "Finishing up", subtext: "Double-check everything looks OK before confirming."},{header:"",subtext:""}];
 
   return (
     <div className="w-screen h-screen flex justify-center items-center bg-[#F0F4FDff]">
       <div className="w-[900px] h-[600px] bg-white flex justify-center items-center rounded-xl">
         <div className="w-[90%] h-[90%] flex justify-center items-center gap-10">
+
           <Sidebar currentStep={currentStep} />
 
           <div className="w-[60%] h-[90%] flex flex-col justify-start items-start">
@@ -25,7 +29,7 @@ function App() {
 
             : currentStep == 2 ?
 
-            <Plan /> :
+            <Plan chosePlan={chosePlan}/> :
             ""
 
 

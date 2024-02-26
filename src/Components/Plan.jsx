@@ -6,7 +6,7 @@ import Advanced from "../assets/img/icon-advanced.svg"
 import Pro from "../assets/img/icon-pro.svg"
 
 
-export default function Plan() {
+export default function Plan(props) {
 
     const[plan,setPlan]=useState("year")
 
@@ -16,11 +16,11 @@ export default function Plan() {
 
         <div className='w-[100%] h-[80%] flex justify-center items-center gap-4'>
 
-            <EachPlan icon={Arcade} plan={"Arcade"} price={plan == "year" ? "$90/yr" : "$9/mo"}/>
+            <EachPlan icon={Arcade} plan={"Arcade"} price={plan == "year" ? "$90/yr" : "$9/mo"} chosePlan={props.chosePlan}/>
 
-            <EachPlan icon={Advanced} plan={"Advanced"} price={plan == "year" ? "$120/yr" : "$12/mo"}/>
+            <EachPlan icon={Advanced} plan={"Advanced"} price={plan == "year" ? "$120/yr" : "$12/mo"} chosePlan={props.chosePlan}/>
 
-            <EachPlan icon={Pro} plan={"Pro"} price={plan == "year" ? "$150/yr" : "$15/mo"}/>
+            <EachPlan icon={Pro} plan={"Pro"} price={plan == "year" ? "$150/yr" : "$15/mo"} chosePlan={props.chosePlan}/>
 
         </div>
 
