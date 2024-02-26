@@ -5,13 +5,13 @@ import Header from "./Components/Header";
 
 function App() {
 
-  const[currentStep,setStep]=useState(0)
+  const[currentStep,setStep]=useState(1)
 
   return (
     <div className="w-screen h-screen flex justify-center items-center bg-[#F0F4FDff]">
       <div className="w-[900px] h-[600px] bg-white flex justify-center items-center rounded-xl">
         <div className="w-[90%] h-[90%] flex justify-center items-center gap-10">
-          <Sidebar />
+          <Sidebar currentStep={currentStep} />
 
           <div className="w-[60%] h-[90%] flex flex-col justify-start items-start">
             <Header />
