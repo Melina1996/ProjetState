@@ -8,7 +8,6 @@ function App() {
   const [currentStep, setStep] = useState(1);
 
   const [chosenPlan,chosePlan]=useState("")
-  console.log(chosenPlan)
 
   let headerInfo = [{header: "Personal info", subtext: "Please provide your name, email address, and phone number."},{header: "Select your plan", subtext: "You have the option of monthly or yearly billing"},{header: "Pick add-ons", subtext: "Add-ons help enhance your gaming experience."},{header: "Finishing up", subtext: "Double-check everything looks OK before confirming."},{header:"",subtext:""}];
 
@@ -21,7 +20,7 @@ function App() {
 
           <div className="w-[60%] h-[90%] flex flex-col justify-start items-start">
 
-            <Header header={currentStep == 1 ? headerInfo[0].header : currentStep == 2 ? headerInfo[1].header : currentStep == 3 ? headerInfo[2].header : currentStep == 4? headerInfo[3].header : currentStep == 5 ? headerInfo[4].header : ""} subtext={currentStep == 1 ? headerInfo[0].subtext : currentStep == 2 ? headerInfo[1].subtext : currentStep == 3 ? headerInfo[2].subtext : currentStep == 4? headerInfo[3].subtext : currentStep == 5 ? headerInfo[4].subtext : ""}/>
+            <Header header={currentStep == 1 ? headerInfo[0].header : currentStep == 2 ? headerInfo[1].header : (currentStep == 3 && chosenPlan != "")? headerInfo[2].header : currentStep == 4? headerInfo[3].header : currentStep == 5 ? headerInfo[4].header : ""} subtext={currentStep == 1 ? headerInfo[0].subtext : currentStep == 2 ? headerInfo[1].subtext : currentStep == 3 ? headerInfo[2].subtext : currentStep == 4? headerInfo[3].subtext : currentStep == 5 ? headerInfo[4].subtext : ""}/>
 
             {currentStep == 1 ? 
 
@@ -51,7 +50,7 @@ function App() {
               <div className="w-[50%] flex justify-end items-center">
                 <button
                   onClick={() =>
-                    currentStep < 5 ? setStep(currentStep + 1) : ""
+                    (currentStep == 2 && chosenPlan == "") ? "" : setStep(currentStep + 1)
                   }
                   className="bg-[#012A5Cff] rounded-lg text-white p-3"
                 >

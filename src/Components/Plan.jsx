@@ -8,25 +8,37 @@ import Pro from "../assets/img/icon-pro.svg"
 
 export default function Plan(props) {
 
-    const[plan,setPlan]=useState("year")
+    const[plan,setPlan]=useState("yearly")
+
+   function toggle(){
+    if(plan == "yearly"){
+      setPlan("monthly")
+    } else {
+      setPlan("yearly")
+    }
+   }
 
   return (
 
-    <div className='w-[100%] h-[80%] flex flex-col gap-5'>
+    <div className='w-[100%] h-[70%] flex flex-col gap-3'>
 
-        <div className='w-[100%] h-[80%] flex justify-center items-center gap-4'>
+        <div className='w-[100%] h-[70%] flex justify-center items-center gap-4'>
 
-            <EachPlan icon={Arcade} plan={"Arcade"} price={plan == "year" ? "$90/yr" : "$9/mo"} chosePlan={props.chosePlan}/>
+            <EachPlan icon={Arcade} plan={"Arcade"} price={plan == "yearly" ? "$90/yr" : "$9/mo"} chosePlan={props.chosePlan}/>
 
-            <EachPlan icon={Advanced} plan={"Advanced"} price={plan == "year" ? "$120/yr" : "$12/mo"} chosePlan={props.chosePlan}/>
+            <EachPlan icon={Advanced} plan={"Advanced"} price={plan == "yearly" ? "$120/yr" : "$12/mo"} chosePlan={props.chosePlan}/>
 
-            <EachPlan icon={Pro} plan={"Pro"} price={plan == "year" ? "$150/yr" : "$15/mo"} chosePlan={props.chosePlan}/>
+            <EachPlan icon={Pro} plan={"Pro"} price={plan == "yearly" ? "$150/yr" : "$15/mo"} chosePlan={props.chosePlan}/>
 
         </div>
 
-        <div className='w-[100%] h-[20%] flex justify-center items-center'>
+        <div className='w-[100%] h-[20%] flex justify-center items-center gap-4 bg-[#F3F4FDff] rounded-xö'>
 
-            <input type="checkbox" className="toggle [--tglbg:yellow] bg-blue-500 hover:bg-blue-700 border-blue-500" checked />
+          <p className='text-[#012A5Bff] font-semibold'>Monthly</p>
+
+          <input onChange={() => toggle()} type="checkbox" className="toggle [--tglbg:#012A5Bff] bg-white hover:bg-white" defaultChecked/>
+
+          <p className='text-[#012A5Bff] font-semibold'>Yearly</p>
 
         </div>
 

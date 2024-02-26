@@ -5,3 +5,8 @@
 body {
   margin: 0;
 }
+
+.plan-btn{
+  background-color: #EFEFEFff;
+  border-color: #C196ECff;
+}

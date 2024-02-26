@@ -12,6 +12,6 @@ export default {
       "barlow" : ['Barlow Semi Condensed','sans-serif']
     },},
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 }
 

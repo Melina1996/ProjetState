@@ -13,7 +13,7 @@ export default function Input(props) {
         <p className='text-[#012A5Cff] text-[14px] font-semibold tracking-wider'>{props.inputTitle} {input}</p>
         
         {/* onChange function for display of my user input */}
-        <input onChange={(e) => setInput(e.target.value)} type={props.inputType} placeholder={props.placeholder} className='pl-2 border-2 border-solid border-[#C8C8C8ff] rounded-lg h-[50px] w-[100%] flex justify-center items-center'/>
+        <input onChange={(e) => setInput(e.target.value)} type={props.inputType} placeholder={props.placeholder} className='pl-2 bg-white border-2 border-solid border-[#C8C8C8ff] rounded-lg h-[50px] w-[100%] flex justify-center items-center'/>
 
     </div>
   )
