@@ -15,11 +15,11 @@ export default function Plan(props) {
 
         <div className='w-[100%] h-[70%] flex justify-center items-center gap-4'>
 
-            <EachPlan setPrice={props.setPrice} icon={Arcade} namePlan={"Arcade"} price={props.plan == "yearly" ? 90 : 9} chosePlan={props.chosePlan} plan={props.plan} setStyle={props.setStyle} myStyle={props.myStyle}/>
+            <EachPlan id={1} setPrice={props.setPrice} icon={Arcade} namePlan={"Arcade"} price={props.plan == "yearly" ? 90 : 9} chosePlan={props.chosePlan} chosenPlan={props.chosenPlan} plan={props.plan}/>
 
-            <EachPlan setPrice={props.setPrice}  icon={Advanced} namePlan={"Advanced"} price={props.plan == "yearly" ? 120 : 12} chosePlan={props.chosePlan} plan={props.plan} setStyle={props.setStyle} myStyle={props.myStyle}/>
+            <EachPlan id={2} setPrice={props.setPrice}  icon={Advanced} namePlan={"Advanced"} price={props.plan == "yearly" ? 120 : 12} chosePlan={props.chosePlan} chosenPlan={props.chosenPlan} plan={props.plan}/>
 
-            <EachPlan setPrice={props.setPrice}  icon={Pro} namePlan={"Pro"} price={props.plan == "yearly" ? 150 : 15} chosePlan={props.chosePlan} plan={props.plan} setStyle={props.setStyle} myStyle={props.myStyle}/>
+            <EachPlan id={3} setPrice={props.setPrice}  icon={Pro} namePlan={"Pro"} price={props.plan == "yearly" ? 150 : 15} chosePlan={props.chosePlan} chosenPlan={props.chosenPlan} plan={props.plan}/>
 
         </div>
 

@@ -99,7 +99,7 @@ function App() {
             {currentStep == 1 ? (
               <Personal />
             ) : currentStep == 2 ? (
-              <Plan chosePlan={chosePlan} toggle={toggle} plan={plan} setPrice={setPrice} myStyle={myStyle} setStyle={setStyle}/>
+              <Plan chosePlan={chosePlan} chosenPlan={chosenPlan} toggle={toggle} plan={plan} setPrice={setPrice} myStyle={myStyle} setStyle={setStyle}/>
             ) : currentStep == 3 ? (
               <Add_ons
                 setOnline={setOnline}
@@ -120,7 +120,7 @@ function App() {
               <div className="w-[50%] flex justify-start items-center">
                 <button
                   onClick={() =>
-                    currentStep > 0 ? setStep(currentStep - 1) : ""
+                    currentStep > 1 ? setStep(currentStep - 1) : ""
                   }
                   className="text-[#012A5Cff] font-semibold"
                 >
@@ -135,7 +135,7 @@ function App() {
                       ? ""
                       : setStep(currentStep + 1)
                   }
-                  className={`${currentStep == 4 ? "bg-[#4A4CFCff]" : "bg-[#012A5Cff]"} rounded-lg text-white p-3`}
+                  className={`${currentStep == 4 ? "bg-[#4A4CFCff]" : "bg-[#012A5Cff]"} rounded-lg text-white p-3 hover:bg-[#003E89ff]`}
                 >
                   {currentStep == 4 ? "Confirm" : "Next step"}
                 </button>

@@ -17,7 +17,7 @@ export default function Checkbox(props) {
 
   return (
     <div>
-        <div className="flex justify-center items-center w-[100%] border-2 border-solid border-[#C8C8C8ff] p-3 rounded-xl hover:border-[#C196ECff]">
+        <div className={`flex justify-center items-center w-[100%] border-2 border-solid border-[#C8C8C8ff] p-3 rounded-xl hover:border-[#943C94ff]`}>
 
             <label className="cursor-pointer flex justify-start items-center w-[80%] gap-4">
 
