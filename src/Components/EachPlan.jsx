@@ -4,23 +4,21 @@ import { useState,useRef } from "react"
 export default function EachPlan(props) {
 
 
-    function changeStyle(e){
+  const[active,setActive]=useState(false)
 
-        // document.querySelectorAll(".plan-btn").style.backgroundColor = "none"
+  const[style,setStyle]=useState("")
 
-        // document.querySelectorAll(".plan-btn").style.borderColor = "#C8C8C8ff"
+  function test(e){
+    console.log(e.target)
 
-        e.target.style.backgroundColor = "#EFEFEFff"
+  }
+  
 
-        e.target.style.borderColor = "#C196ECff"
-
-
-    }
 
   return (
     <div className='w-[30%] h-[100%] flex justify-center items-center'>
 
-    <button onClick={(e)=> {props.chosePlan(props.namePlan), changeStyle(e),props.setPrice(props.price)}} className={`flex flex-col w-[100%] h-[70%] justify-center items-start border-2 border-[#C8C8C8ff] border-solid p-4 rounded-xl`}>
+    <button onClick={(e)=> {props.chosePlan(props.namePlan),props.setPrice(props.price), test(e)}} className={`${active ? "bg-[#EFEFEFff] border-[#C196ECff]" : "bg-none border-[#C8C8C8ff]"} hover:border-[#C196ECff] my-btn flex flex-col w-[100%] h-[70%] justify-center items-start border-2 border-solid p-4 rounded-xl`}>
 
         <img src={props.icon} alt="" />
 

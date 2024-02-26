@@ -9,7 +9,7 @@ export default {
       "sidebarOne": "url('./assets/img/bg-sidebar-desktop.svg')"
     },
     fontFamily:{
-      "barlow" : ['Barlow Semi Condensed','sans-serif']
+      "ubuntu" : ['Ubuntu','sans-serif']
     },},
   },
   plugins: [require("daisyui")],

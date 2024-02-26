@@ -5,6 +5,7 @@ import Header from "./Components/Header";
 import Plan from "./Components/Plan";
 import Add_ons from "./Components/Add_ons";
 import Overview from "./Components/Overview";
+import Thanks from "./Components/Thanks";
 
 function App() {
   const [currentStep, setStep] = useState(1);
@@ -13,7 +14,11 @@ function App() {
 
   const [finalPrice, setPrice] = useState("")
 
+  const[myStyle,setStyle] = useState("bg-none border-[#C8C8C8ff]")
+
   const[plan,setPlan]=useState("monthly")
+
+  const[sum,setSum]=useState(0)
 
   function toggle(){
    if(plan == "yearly"){
@@ -23,11 +28,11 @@ function App() {
    }
   }
 
-  const [online, setOnline] = useState([]);
+  const [online, setOnline] = useState([{price: 0}]);
 
-  const [storage, setStorage] = useState([]);
+  const [storage, setStorage] = useState([{price: 0}]);
 
-  const [profile, setProfile] = useState([]);
+  const [profile, setProfile] = useState([{price: 0}]);
 
   const services = [online,storage,profile]
 
@@ -56,7 +61,7 @@ function App() {
 
 
   return (
-    <div className="w-screen h-screen flex justify-center items-center bg-[#F0F4FDff]">
+    <div className="w-screen h-screen flex justify-center items-center bg-[#F0F4FDff] font-ubuntu">
       <div className="w-[900px] h-[600px] bg-white flex justify-center items-center rounded-xl">
         <div className="w-[90%] h-[90%] flex justify-center items-center gap-10">
           <Sidebar currentStep={currentStep} />
@@ -94,7 +99,7 @@ function App() {
             {currentStep == 1 ? (
               <Personal />
             ) : currentStep == 2 ? (
-              <Plan chosePlan={chosePlan} toggle={toggle} plan={plan} setPrice={setPrice}/>
+              <Plan chosePlan={chosePlan} toggle={toggle} plan={plan} setPrice={setPrice} myStyle={myStyle} setStyle={setStyle}/>
             ) : currentStep == 3 ? (
               <Add_ons
                 setOnline={setOnline}
@@ -103,11 +108,14 @@ function App() {
                 plan={plan}
               />
             ) : currentStep == 4 ? (
-              <Overview services={services} chosenPlan={chosenPlan} plan={plan} finalPrice={finalPrice}/>
-            ) : (
+              <Overview setStep={setStep} services={services} storage={storage} profile={profile} online={online} chosenPlan={chosenPlan} plan={plan} finalPrice={finalPrice}/>
+            ) : currentStep == 5 ?
+              <Thanks /> :
+            (
               ""
             )}
 
+          {currentStep < 5 ? 
             <div className="h-[10%] w-[100%] flex justify-center items-center">
               <div className="w-[50%] flex justify-start items-center">
                 <button
@@ -127,12 +135,14 @@ function App() {
                       ? ""
                       : setStep(currentStep + 1)
                   }
-                  className="bg-[#012A5Cff] rounded-lg text-white p-3"
+                  className={`${currentStep == 4 ? "bg-[#4A4CFCff]" : "bg-[#012A5Cff]"} rounded-lg text-white p-3`}
                 >
-                  Next step
+                  {currentStep == 4 ? "Confirm" : "Next step"}
                 </button>
               </div>
             </div>
+            : 
+            ""}
           </div>
         </div>
       </div>
