@@ -35,8 +35,7 @@ export default function Checkbox(props) {
 
             <div className="cursor-pointer flex justify-end items-center w-[20%]">
 
-                <p>{props.price}</p>
-
+                <p>${props.price}/{props.plan == "yearly" ? "yr" : "mo"}</p>
 
             </div>
 

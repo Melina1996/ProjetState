@@ -28,7 +28,7 @@ export default function EachPlan(props) {
 
             <p className='text-[#012A5Cff] font-semibold'>{props.namePlan}</p>
 
-            <p className='text-[#C8C8C8ff]'>{props.price}</p>
+            <p className='text-[#C8C8C8ff]'>${props.price}/{props.plan == "yearly" ? "yr" : "mo"}</p>
 
         </div>
 

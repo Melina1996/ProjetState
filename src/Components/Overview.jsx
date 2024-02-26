@@ -1,4 +1,5 @@
 import React from 'react'
+import Each_service from './Each_service'
 
 export default function Overview(props) {
   return (
@@ -32,21 +33,7 @@ export default function Overview(props) {
 
                 element.state ? 
 
-                <div key={id} className='w-[100%] h-[40%] rounded-xl flex'> 
-
-                    <div className='w-[50%] h-[100%] flex flex-col justify-center items-start pl-6'>
-
-                        <p>{element.name}</p>
-
-                    </div>
-
-                    <div className='w-[50%] h-[100%] flex justify-end items-center pr-6'>
-
-                    <p>{element.price}</p>
-
-                    </div>
-
-                </div> :
+                <Each_service element={element} key={id}/> :
                 ""
 
                 )
