@@ -32,7 +32,7 @@ function App() {
 
               <div className="w-[50%] flex justify-start items-center">
 
-                <button className="text-[#012A5Cff] font-semibold">
+                <button onClick={()=> currentStep > 0 ? setStep(currentStep-1) : ""} className="text-[#012A5Cff] font-semibold">
                   Go back
                 </button>
 
@@ -40,7 +40,7 @@ function App() {
 
               <div className="w-[50%] flex justify-end items-center">
 
-                <button className="bg-[#012A5Cff] rounded-lg text-white p-3">
+                <button onClick={()=> currentStep <5 ? setStep(currentStep+1) : ""} className="bg-[#012A5Cff] rounded-lg text-white p-3">
                   Next step
                 </button>
 
