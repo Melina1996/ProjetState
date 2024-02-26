@@ -4,7 +4,7 @@ import Input from './Input'
 export default function Personal() {
   return (
 
-    <div  className='w-[100%] h-[80%] rounded-xl flex flex-col gap-5'>
+    <div  className='w-[100%] h-[80%] flex flex-col gap-5'>
 
 
         <Input inputTitle={"Your name is:"} placeholder={"Vingt-Six"} inputType={"text"}/>

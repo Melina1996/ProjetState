@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Sidebar from "./Components/Sidebar";
 import Personal from "./Components/Personal";
 import Header from "./Components/Header";
+import Plan from "./Components/Plan";
 
 function App() {
   const [currentStep, setStep] = useState(1);
@@ -18,15 +19,18 @@ function App() {
 
             <Header header={currentStep == 1 ? headerInfo[0].header : currentStep == 2 ? headerInfo[1].header : currentStep == 3 ? headerInfo[2].header : currentStep == 4? headerInfo[3].header : currentStep == 5 ? headerInfo[4].header : ""} subtext={currentStep == 1 ? headerInfo[0].subtext : currentStep == 2 ? headerInfo[1].subtext : currentStep == 3 ? headerInfo[2].subtext : currentStep == 4? headerInfo[3].subtext : currentStep == 5 ? headerInfo[4].subtext : ""}/>
 
-            {/* {currentStep == 0 ?  */}
+            {currentStep == 1 ? 
 
             <Personal />
 
-            {/* //   : currentStep == 1 ?
+            : currentStep == 2 ?
+
+            <Plan /> :
+            ""
 
 
 
-            // } */}
+              }
 
             <div className="h-[10%] w-[100%] flex justify-center items-center">
               <div className="w-[50%] flex justify-start items-center">
