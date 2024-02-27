@@ -22,7 +22,7 @@ export default function Steps(props) {
       </div>
 
       <div className="flex flex-col text-white">
-        <p className="md:text-[18px] text-[8px]">{props.header}</p>
+        <p className="md:text-[15px] text-[8px]">{props.header}</p>
         <p className="font-semibold md:text-[18px] text-[8px]">{props.subheader}</p>
       </div>
     </div>
