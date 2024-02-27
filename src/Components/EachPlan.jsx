@@ -6,7 +6,7 @@ export default function EachPlan(props) {
   return (
     <div className='w-[30%] h-[100%] flex justify-center items-center'>
 
-    <button onClick={(e)=> {props.chosePlan(props.namePlan),props.setPrice(props.price)}} className={`${props.chosenPlan == props.namePlan ? ("bg-[#EFEFEFff] border-[#943C94ff]") : "bg-white"} hover:border-[#943C94ff] my-btn flex flex-col w-[100%] h-[70%] justify-center items-start border-2 border-solid p-4 rounded-xl`}>
+    <button onClick={()=> {props.chosePlan(props.namePlan),props.setPrice(props.price)}} className={`${props.chosenPlan == props.namePlan ? ("bg-[#EFEFEFff] border-[#943C94ff]") : "bg-white"} hover:border-[#943C94ff] my-btn flex flex-col w-[100%] h-[70%] justify-center items-start border-2 border-solid p-4 rounded-xl`}>
 
         <img src={props.icon} alt="" />
 

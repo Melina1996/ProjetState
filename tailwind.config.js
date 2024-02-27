@@ -6,7 +6,8 @@ export default {
   ],
   theme: {
     extend: {backgroundImage:{
-      "sidebarOne": "url('./assets/img/bg-sidebar-desktop.svg')"
+      "sidebarOne": "url('./assets/img/bg-sidebar-desktop.svg')",
+      "sidebarTwo": "url('./assets/img/bg-sidebar-mobile.svg')"
     },
     fontFamily:{
       "ubuntu" : ['Ubuntu','sans-serif']

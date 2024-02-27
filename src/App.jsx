@@ -8,25 +8,27 @@ import Overview from "./Components/Overview";
 import Thanks from "./Components/Thanks";
 
 function App() {
+
+  //useState to change Display
   const [currentStep, setStep] = useState(1);
 
+  //useState for the chosen plan (Arcade, Pro,etc.)
   const [chosenPlan, chosePlan] = useState("");
 
+  //useState in order to determine price of my selected plan (value is changed on click on my plan-btn)
   const [finalPrice, setPrice] = useState("");
 
-  const [myStyle, setStyle] = useState("bg-none border-[#C8C8C8ff]");
-
+  //useStates to store all of my input field values in a variable and then to be able to check whether they have been filled in or not with ".length"
   const [textInput, setTextInput] = useState("");
-
 
   const [mailInput, setMailInput] = useState("");
 
   const [numberInput, setNumberInput] = useState("");
 
-
-
+  //useState for the payment yearly/monthly
   const [plan, setPlan] = useState("monthly");
 
+  //function for my toggle btn on page 2 in order to change my useState "plan" according to the toggle's result
   function toggle() {
     if (plan == "yearly") {
       setPlan("monthly");
@@ -35,20 +37,28 @@ function App() {
     }
   }
 
+  //CHECKBOXES
+
+  //functionality: 3 useStateswith each an object for my 3 services that are later modified if chosen
   const [online, setOnline] = useState([{ price: 0 }]);
 
   const [storage, setStorage] = useState([{ price: 0 }]);
 
   const [profile, setProfile] = useState([{ price: 0 }]);
 
-  const [checkOnline, setCheckOnline] = useState(false);
-  const [checkStorage, setCheckStorage] = useState(false);
-  const [checkProfile, setCheckProfile] = useState(false);
-
+  //set the three objects into an array in order to be able to map over them in my Overview-Display
   const services = [online, storage, profile];
 
-  console.log(services);
 
+
+  //style: in order to maintain the checked style even when returning to the page, I need three useStates for each of the services that are set "true", when service has been checked. The built-in attribute "checked" is assigned the respective value (style didn't stay checked without this)
+  const [checkOnline, setCheckOnline] = useState(false);
+
+  const [checkStorage, setCheckStorage] = useState(false);
+
+  const [checkProfile, setCheckProfile] = useState(false);
+
+  //array with objects for each of the display's header
   let headerInfo = [
     {
       header: "Personal info",
@@ -70,12 +80,16 @@ function App() {
   ];
 
   return (
-    <div className="w-screen h-screen flex justify-center items-center bg-[#F0F4FDff] font-ubuntu">
-      <div className="w-[900px] h-[600px] bg-white flex justify-center items-center rounded-xl">
-        <div className="w-[90%] h-[90%] flex justify-center items-center gap-10">
+    <div className="md:w-screen md:h-screen w-fit flex justify-center items-center bg-[#F0F4FDff] font-ubuntu">
+      <div className="w-[900px] md:h-[600px] h-[1000px] bg-white flex justify-center items-center rounded-xl">
+        
+        <div className="w-[90%] h-[100%] flex md:flex-row flex-col justify-center items-center gap-10">
+          
           <Sidebar currentStep={currentStep} />
 
-          <div className="w-[60%] h-[90%] flex flex-col justify-start items-start">
+          <div className="md:w-[60%] md:h-[90%] w-[90%] h-[80%] flex flex-col justify-start items-start">
+
+            {/* header is displayed according to site */}
             <Header
               header={
                 currentStep == 1
@@ -106,6 +120,7 @@ function App() {
             />
 
             {currentStep == 1 ? (
+              // send input-useStates in order to assign them accordingly
               <Personal
                 setTextInput={setTextInput}
                 setMailInput={setMailInput}
@@ -118,8 +133,6 @@ function App() {
                 toggle={toggle}
                 plan={plan}
                 setPrice={setPrice}
-                myStyle={myStyle}
-                setStyle={setStyle}
               />
             ) : currentStep == 3 ? (
               <Add_ons
@@ -166,8 +179,12 @@ function App() {
 
                 <div className="w-[50%] flex justify-end items-center">
                   <button
-                    onClick={() => currentStep == 1 && textInput.length == 0 || mailInput.length == 0 || numberInput.length == 0 ||
-                      currentStep == 2 && chosenPlan == ""
+                    onClick={() =>
+                      //disable btn "next" in case no plan and no prsonal info has been put in
+                      (currentStep == 1 && textInput.length == 0) ||
+                      mailInput.length == 0 ||
+                      numberInput.length == 0 ||
+                      (currentStep == 2 && chosenPlan == "")
                         ? ""
                         : setStep(currentStep + 1)
                     }
