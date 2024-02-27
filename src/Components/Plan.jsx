@@ -11,9 +11,9 @@ export default function Plan(props) {
 
   return (
 
-    <div className='w-[100%] h-[70%] flex flex-col gap-3'>
+    <div className='w-[100%] h-[70%] flex flex-col md:gap-3 gap-6'>
 
-        <div className='w-[100%] h-[70%] flex justify-center items-center gap-4'>
+        <div className='w-[100%] h-[70%] flex md:flex-row flex-col justify-center items-center gap-4'>
 
             <EachPlan id={1} setPrice={props.setPrice} icon={Arcade} namePlan={"Arcade"} price={props.plan == "yearly" ? 90 : 9} chosePlan={props.chosePlan} chosenPlan={props.chosenPlan} plan={props.plan}/>
 
@@ -23,7 +23,7 @@ export default function Plan(props) {
 
         </div>
 
-        <div className='w-[100%] h-[20%] flex justify-center items-center gap-4 bg-[#F3F4FDff] rounded-xl'>
+        <div className='w-[100%] md:h-[20%] h-[70px] flex justify-center items-center gap-4 bg-[#F3F4FDff] rounded-xl'>
 
           <p className='text-[#012A5Bff] font-semibold'>Monthly</p>
 

@@ -17,7 +17,7 @@ export default function Input(props) {
 
   return (
     <div className="flex flex-col justify-center items-start">
-      <p className="text-[#012A5Cff] text-[14px] font-semibold tracking-wider">
+      <p className="text-[#012A5Cff] text-[14px] md:text-[16px] font-semibold tracking-wider">
         {props.inputTitle} {input}
       </p>
 

@@ -60,7 +60,7 @@ export default function Checkbox(props) {
           />
 
           <div>
-            <p className="font-semibold text-[#012A5Cff] md:text-[17px] text-[14px]">{props.service}</p>
+            <p className="font-semibold text-[#012A5Cff] md:text-[17px] text-[15px]">{props.service}</p>
             <p className="md:text-[15px] text-[12px]">{props.description}</p>
           </div>
         </label>

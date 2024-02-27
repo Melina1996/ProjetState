@@ -6,7 +6,7 @@ export default function Header(props) {
       <h1 className="text-[#012A5Bff] md:text-[35px] text-[25px] font-semibold">
         {props.header}
       </h1>
-      <p className="text-[#C8C8C8ff] md:text-[15px] text-[12px]">{props.subtext}</p>
+      <p className="text-[#C8C8C8ff] md:text-[15px] text-[14px]">{props.subtext}</p>
     </div>
   );
 }
