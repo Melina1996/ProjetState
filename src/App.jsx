@@ -18,8 +18,6 @@ function App() {
   //useState in order to determine price of my selected plan (value is changed on click on my plan-btn)
   const [finalPrice, setPrice] = useState([]);
 
-  console.log(finalPrice)
-
   //useStates to store all of my input field values in a variable and then to be able to check whether they have been filled in or not with ".length"
   const [textInput, setTextInput] = useState("");
 
@@ -30,17 +28,23 @@ function App() {
   //useState for the payment yearly/monthly
   const [plan, setPlan] = useState("monthly");
 
-
   //TOGGLE btn: need useState in order to stock state of toggle-btn and keep its position saved when changing display and returning to display
 
   const[toggled,setToggle]=useState(false)
 
   //function for my toggle btn on page 2 in order to change my useState "plan" according to the toggle's result
+  
   function toggle(e) {
     if (e.target.checked) {
       setPlan("yearly");
+      setCheckOnline(false)
+      setCheckStorage(false)
+      setCheckProfile(false) 
     } else {
       setPlan("monthly");
+      setCheckOnline(false)
+      setCheckStorage(false)
+      setCheckProfile(false)
     }
   }
 
@@ -55,7 +59,6 @@ function App() {
 
   //set the three objects into an array in order to be able to map over them in my Overview-Display
   const services = [online, storage, profile];
-
 
   //style: in order to maintain the checked style even when returning to the page, I need three useStates for each of the services that are set "true", when service has been checked. The built-in attribute "checked" is assigned the respective value (style didn't stay checked without this)
   const [checkOnline, setCheckOnline] = useState(false);
