@@ -42,10 +42,13 @@ export default function Overview(props) {
         </div>
 
         <div className="w-[50%] h-[100%] flex justify-end items-center p-3">
+
+        {/* sum: add price of my service to sum if it's not "undefined" AND if the state of my service is "TRUE", so it has been selected */}
+        
           <p className="text-[#5956F9ff] text-xl font-semibold">$
-            {(props.online.price != undefined ? props.online.price : 0) +
-              (props.storage.price != undefined ? props.storage.price : 0) +
-              (props.profile.price != undefined ? props.profile.price : 0) +
+            {(props.online.price != undefined && props.online.state ? props.online.price : 0) +
+              (props.storage.price != undefined && props.storage.state ? props.storage.price : 0) +
+              (props.profile.price != undefined && props.profile.state ? props.profile.price : 0) +
               props.finalPrice}{props.plan == "yearly" ? "/yr" : "/mo"}
           </p>
         </div>
