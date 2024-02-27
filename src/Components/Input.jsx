@@ -6,6 +6,16 @@ export default function Input(props) {
     //in order to directly read user input and display it in my p
     const[input,setInput]=useState("")
 
+    function changeInput(type){
+      if(type == "text"){
+        props.setTextInput(input)
+      } else if(type == "email"){
+        props.setMailInput(input)
+      } else if(type == "telephone"){
+        props.setNumberInput(input)
+      }
+    }
+
   return (
 
     <div className='flex flex-col justify-center items-start'>
@@ -13,7 +23,7 @@ export default function Input(props) {
         <p className='text-[#012A5Cff] text-[14px] font-semibold tracking-wider'>{props.inputTitle} {input}</p>
         
         {/* onChange function for display of my user input */}
-        <input onChange={(e) => setInput(e.target.value)} type={props.inputType} placeholder={props.placeholder} className='pl-2 bg-white border-2 border-solid border-[#C8C8C8ff] rounded-lg h-[50px] w-[100%] flex justify-center items-center focus:border-[#C196ECff] focus:outline-none'/>
+        <input onChange={(e) => {setInput(e.target.value), changeInput(props.inputType)}} type={props.inputType} placeholder={props.placeholder} className='pl-2 bg-white border-2 border-solid border-[#C8C8C8ff] rounded-lg h-[50px] w-[100%] flex justify-center items-center focus:border-[#C196ECff] focus:outline-none'/>
 
     </div>
   )

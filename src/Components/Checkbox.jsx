@@ -8,10 +8,13 @@ export default function Checkbox(props) {
 
         if(e.target.attributes.getNamedItem('my-data').value == "Online service"){
             props.setOnline({state: e.target.checked,name: "Online service",price: props.price})
+            props.setCheckOnline(!props.checkOnline)
         } else if (e.target.attributes.getNamedItem('my-data').value == "Larger storage"){
             props.setStorage({state: e.target.checked,name:"Larger storage",price: props.price})
+            props.setCheckStorage(!props.checkStorage)
         } else if(e.target.attributes.getNamedItem('my-data').value == "Customizable profile"){
             props.setProfile({state: e.target.checked, name:"Customizable profile",price: props.price})
+            props.setCheckProfile(!props.checkProfile)
         }
     }
 
@@ -21,7 +24,7 @@ export default function Checkbox(props) {
 
             <label className="cursor-pointer flex justify-start items-center w-[80%] gap-4">
 
-                <input my-data={props.service} onChange={(e) => changeBox(e)} type="checkbox" className="checkbox checkbox-sm border-[#C8C8C8ff] checked:border-[#8E3E90ff] [--chkbg:#8E3E90ff] [--chkfg:white]" />
+                <input checked={props.service == "Online service" && props.checkOnline ? true : props.service == "Larger storage" && props.checkStorage ? true : props.service == "Customizable profile" && props.checkProfile ? true : ""} my-data={props.service} onChange={(e) => changeBox(e)} type="checkbox" className={`checkbox checkbox-sm border-[#C8C8C8ff] checked:border-[#8E3E90ff] [--chkbg:#8E3E90ff] [--chkfg:white]`}/>
                 
                 <div>
 
