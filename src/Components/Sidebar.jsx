@@ -3,9 +3,9 @@ import Steps from './Steps'
 
 export default function Sidebar(props) {
   return (
-    <div className='md:bg-sidebarOne mt-4 md:mt-0 bg-sidebarTwo bg-no-repeat bg-cover w-[100%] h-[30%] md:w-[35%] md:h-[90%] rounded-xl'>
+    <div className='bg-sidebarOne bg-no-repeat bg-cover w-[35%] h-[100%] rounded-xl'>
 
-       <div className='flex w-[100%] h-[100%] md:flex-col flex-row justify-start md:pt-10 md:items-start itens-center gap-8 rounded-xl'>
+       <div className='flex w-[80%] h-[100%] flex-col justify-start pt-10 items-start gap-8 rounded-xl'>
 
         <Steps number={"1"} header={"STEP 1"} subheader={"YOUR INFO"} currentStep={props.currentStep}/>
 
