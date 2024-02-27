@@ -81,11 +81,13 @@ function App() {
 
   return (
     <div className="w-screen h-screen flex justify-center items-center bg-[#F0F4FDff] font-ubuntu">
-      <div className="w-[900px] h-[600px] bg-white flex justify-center items-center rounded-xl">
-        <div className="w-[90%] h-[90%] flex justify-center items-center gap-10">
+      <div className="w-[900px] md:h-[600px] h-fit bg-white flex justify-center items-center rounded-xl">
+
+        <div className="w-[90%] h-[90%] md:pt-2 pt-0 flex md:flex-row flex-col justify-center items-center md:gap-10">
+          
           <Sidebar currentStep={currentStep} />
 
-          <div className="w-[60%] h-[90%] flex flex-col justify-start items-start">
+          <div className="md:w-[60%] w-[90%] h-[90%] flex flex-col justify-start items-start">
 
             {/* header is displayed according to site */}
             <Header
@@ -164,7 +166,7 @@ function App() {
             )}
 
             {currentStep < 5 ? (
-              <div className="h-[10%] w-[100%] flex justify-center items-center">
+              <div className="md:h-[10%] h-[30%] w-[100%] flex justify-center items-center pt-2 pb-2 md:pb-0 md:pt-0">
                 <div className="w-[50%] flex justify-start items-center">
                   <button
                     onClick={() =>

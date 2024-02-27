@@ -11,11 +11,11 @@ export default function Overview(props) {
         <div className="w-[100%] h-[50%] rounded-xl flex">
             
           <div className="w-[50%] h-[100%] flex flex-col justify-center items-start pl-6">
-            <p className='text-[#012A5Bff] text-[18px] font-semibold'>
+            <p className='text-[#012A5Bff] md:text-[18px] text-[15px] font-semibold'>
               {props.chosenPlan}({props.plan})
             </p>
 
-            <button className="underline underline-offset-1" onClick={()=> props.setStep(2)}>Change</button>
+            <button className="underline underline-offset-1 md:text-[15px] text-[12px]" onClick={()=> props.setStep(2)}>Change</button>
           </div>
 
           <div className="w-[50%] h-[100%] flex justify-end items-center pr-6">

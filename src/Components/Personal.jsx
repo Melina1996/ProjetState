@@ -3,7 +3,7 @@ import Input from "./Input";
 
 export default function Personal(props) {
   return (
-    <div className="w-[100%] md:h-[80%] h-[60%] flex flex-col gap-5">
+    <div className="w-[100%] md:h-[80%] h-[70%] flex flex-col gap-6">
       <Input
         inputTitle={"Your name is:"}
         placeholder={"Vingt-Six"}
