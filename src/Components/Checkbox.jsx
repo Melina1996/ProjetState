@@ -24,8 +24,8 @@ export default function Checkbox(props) {
     <div>
       <div
       //condition in order to change style of checkbox once clicked (for that use the same variable than for the style of my check)
-        className={`flex justify-center items-center w-[100%] border-2 border-solid border-[#C8C8C8ff] p-3 rounded-xl hover:border-[#943C94ff] ${props.service == "Online service" && props.checkOnline || props.service == "Larger storage" && props.checkStorage || props.service == "Customizable profile" && props.checkProfile?
-        ("bg-[#EFEFEFff] border-[#943C94ff]") : "bg-white"} `}
+        className={`flex justify-center items-center w-[100%] border-2 border-solid p-3 rounded-xl hover:border-[#943C94ff] ${props.service == "Online service" && props.checkOnline || props.service == "Larger storage" && props.checkStorage || props.service == "Customizable profile" && props.checkProfile?
+        ("bg-[#EFEFEFff] border-[#943C94ff]") : "bg-white border-[#C8C8C8ff]"} `}
       >
         <label className="cursor-pointer flex justify-start items-center w-[80%] gap-4">
           <input
