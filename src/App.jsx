@@ -37,28 +37,19 @@ function App() {
   function toggle(e) {
     if (e.target.checked) {
       setPlan("yearly");
-      setCheckOnline(false)
-      setCheckStorage(false)
-      setCheckProfile(false) 
     } else {
       setPlan("monthly");
-      setCheckOnline(false)
-      setCheckStorage(false)
-      setCheckProfile(false)
     }
   }
 
   //CHECKBOXES
 
-  //functionality: 3 useStateswith each an object for my 3 services that are later modified if chosen
-  const [online, setOnline] = useState([{ price: 0 }]);
+  //prices of my clicked services
+  const[priceServiceOnline,setPriceServiceOnline]=useState(null)
 
-  const [storage, setStorage] = useState([{ price: 0 }]);
+  const[priceServiceStorage,setPriceServiceStorage]=useState(null)
 
-  const [profile, setProfile] = useState([{ price: 0 }]);
-
-  //set the three objects into an array in order to be able to map over them in my Overview-Display
-  const services = [online, storage, profile];
+  const[priceServiceProfile,setPriceServiceProfile]=useState(null)
 
   //style: in order to maintain the checked style even when returning to the page, I need three useStates for each of the services that are set "true", when service has been checked. The built-in attribute "checked" is assigned the respective value (style didn't stay checked without this)
   const [checkOnline, setCheckOnline] = useState(false);
@@ -66,6 +57,9 @@ function App() {
   const [checkStorage, setCheckStorage] = useState(false);
 
   const [checkProfile, setCheckProfile] = useState(false);
+
+  //set the three objects into an array in order to be able to map over them in my Overview-Display and see whether item is TRUE or FALSE
+  const services = [checkOnline, checkStorage, checkProfile];
 
   //array with objects for each of the display's header
   let headerInfo = [
@@ -149,9 +143,6 @@ function App() {
               />
             ) : currentStep == 3 ? (
               <Add_ons
-                setOnline={setOnline}
-                setStorage={setStorage}
-                setProfile={setProfile}
                 checkOnline={checkOnline}
                 setCheckOnline={setCheckOnline}
                 checkStorage={checkStorage}
@@ -164,12 +155,15 @@ function App() {
               <Overview
                 setStep={setStep}
                 services={services}
-                storage={storage}
-                profile={profile}
-                online={online}
                 chosenPlan={chosenPlan}
                 plan={plan}
                 finalPrice={finalPrice}
+                priceServiceOnline= {priceServiceOnline}
+                setPriceServiceOnline = {setPriceServiceOnline}
+                priceServiceStorage = {priceServiceStorage}
+                setPriceServiceStorage = {setPriceServiceStorage}
+                priceServiceProfile = {priceServiceProfile}
+                setPriceServiceProfile = {setPriceServiceProfile}
               />
             ) : currentStep == 5 ? (
               <Thanks />

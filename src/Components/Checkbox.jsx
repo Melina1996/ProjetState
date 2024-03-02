@@ -3,35 +3,19 @@ import { useEffect, useState } from "react";
 
 export default function Checkbox(props) {
 
- //depending on clicked checkbox, I update the respective useState with the properties "price","name" & IMPORTANT: the state of checkbox if clicked or not
- //apart from functionality, also change value of my variable that stores "true" or "false" depending on whether the box is checked. Need this info to accordingly change the style of my checkbox 
+ //Change value of my variable that stores "true" or "false" depending on whether the box is checked. Need this info to accordingly change the style of my checkbox AND for the overview in order to only display the TRUE-services
  
  function changeBox(e) {
     if (e.target.attributes.getNamedItem("my-data").value == "Online service") {
-      props.setOnline({
-        state: e.target.checked,
-        name: "Online service",
-        price: props.price,
-      });
       props.setCheckOnline(!props.checkOnline);
     } else if (
       e.target.attributes.getNamedItem("my-data").value == "Larger storage"
     ) {
-      props.setStorage({
-        state: e.target.checked,
-        name: "Larger storage",
-        price: props.price,
-      });
       props.setCheckStorage(!props.checkStorage);
     } else if (
       e.target.attributes.getNamedItem("my-data").value ==
       "Customizable profile"
     ) {
-      props.setProfile({
-        state: e.target.checked,
-        name: "Customizable profile",
-        price: props.price,
-      });
       props.setCheckProfile(!props.checkProfile);
     }
   }
@@ -45,6 +29,7 @@ export default function Checkbox(props) {
       >
         <label className="cursor-pointer flex justify-start items-center w-[80%] gap-4">
           <input
+          // this is needed in order to manage the style: to be able to maintain the checked boxes even when leaving display and returning
             checked={
               props.service == "Online service" && props.checkOnline
                 ? true

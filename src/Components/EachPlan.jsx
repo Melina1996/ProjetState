@@ -3,6 +3,7 @@ import { useState,useRef,useEffect } from "react"
 
 export default function EachPlan(props) {
 
+  //useEffect allows me to update the price of the plan whenever there is an update of the chosen plan AND the period of payment "monthly" OR "yearly"
   useEffect(()=>{
 
     if(props.chosenPlan == "Arcade"){

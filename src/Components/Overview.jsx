@@ -3,6 +3,10 @@ import { useEffect } from "react";
 import Each_service from "./Each_service";
 
 export default function Overview(props) {
+
+  //in order to afterwards match the id of my component with the respective name in this array
+  let serviceNames = ["Online service","Larger storage","Customizable profile"]
+
   return (
     <div className="w-[100%] h-[70%] flex flex-col gap-3">
         
@@ -27,8 +31,14 @@ export default function Overview(props) {
 
         <div className="w-[100%] gap-3 flex flex-col justify-center items-center border-t-2 p-4">
             {props.services.map((element, id) => {
-            return element.state ? (
-                <Each_service element={element} key={id} plan={props.plan}/>
+            return element ? (
+              //name corresponding to value that has same ID within array "serviceName" as my ceated component here 
+                <Each_service name={serviceNames[id]} key={id} plan={props.plan} priceServiceOnline= {props.priceServiceOnline}
+                setPriceServiceOnline = {props.setPriceServiceOnline}
+                priceServiceStorage = {props.priceServiceStorage}
+                setPriceServiceStorage = {props.setPriceServiceStorage}
+                priceServiceProfile = {props.priceServiceProfile}
+                setPriceServiceProfile = {props.setPriceServiceProfile}/>
             ) : (
                 ""
             );
@@ -43,12 +53,11 @@ export default function Overview(props) {
 
         <div className="w-[50%] h-[100%] flex justify-end items-center p-3">
 
-        {/* sum: add price of my service to sum if it's not "undefined" AND if the state of my service is "TRUE", so it has been selected */}
-        
+        {/* sum: add price of my service to sum if it has been selected to "TRUE". In order to get name of respective TRUE-value, I created a second array with the names and use the unique-id to match the corresponding values*/}
           <p className="text-[#5956F9ff] text-xl font-semibold">$
-            {(props.online.price != undefined && props.online.state ? props.online.price : 0) +
-              (props.storage.price != undefined && props.storage.state ? props.storage.price : 0) +
-              (props.profile.price != undefined && props.profile.state ? props.profile.price : 0) +
+            {(props.services[0] == true ? props.priceServiceOnline : 0) +
+              (props.services[1] == true ? props.priceServiceStorage : 0) +
+              (props.services[2] == true ? props.priceServiceProfile : 0) +
               props.finalPrice}{props.plan == "yearly" ? "/yr" : "/mo"}
           </p>
         </div>
