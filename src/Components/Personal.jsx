@@ -6,7 +6,7 @@ export default function Personal(props) {
     <div className="w-[100%] md:h-[80%] flex flex-col gap-6">
       <Input
         inputTitle={"Your name is:"}
-        placeholder={""}
+        placeholder={"Type here"}
         inputType={"text"}
         setTextInput={props.setTextInput}
         setMailInput={props.setMailInput}
@@ -15,8 +15,8 @@ export default function Personal(props) {
 
       <Input
         inputTitle={"Your email is:"}
-        placeholder={"vingt_six@email.com"}
-        inputType={""}
+        placeholder={"Type here"}
+        inputType={"email"}
         setTextInput={props.setTextInput}
         setMailInput={props.setMailInput}
         setNumberInput={props.setNumberInput}
@@ -24,8 +24,8 @@ export default function Personal(props) {
 
       <Input
         inputTitle={"Your phone number is:"}
-        placeholder={"eg.+1 234 567 890"}
-        inputType={""}
+        placeholder={"Type here"}
+        inputType={"telephone"}
         setTextInput={props.setTextInput}
         setMailInput={props.setMailInput}
         setNumberInput={props.setNumberInput}
